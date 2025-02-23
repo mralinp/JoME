@@ -2,7 +2,7 @@ import React from 'react';
 import { Card } from 'primereact/card';
 import { Button } from 'primereact/button';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faCheck, faBell, faMicrochip } from '@fortawesome/free-solid-svg-icons';
+import { faCheck, faBell, faMicrochip, faDroplet, faClock } from '@fortawesome/free-solid-svg-icons';
 import './Home.css';
 
 const Home = () => {
@@ -12,6 +12,8 @@ const Home = () => {
         networkStatus: "Connected",
         activeZones: "4/16",
         nextSchedule: "Today 6:00 PM",
+        waterUsage: "250L",
+        uptime: "5 days 2 hours"
     };
 
     return (
@@ -74,6 +76,32 @@ const Home = () => {
                             <p className="description">
                                 This update includes important security patches and system stability improvements.
                             </p>
+                        </div>
+                    </div>
+                </Card>
+            </div>
+
+            <div className="status-cards-grid">
+                <Card className="status-card">
+                    <div className="status-header">
+                        <div className="header-content">
+                            <h2>Water Usage</h2>
+                            <div className="metric-value">
+                                <FontAwesomeIcon icon={faDroplet} className="metric-icon" />
+                                <span>{systemInfo.waterUsage}</span>
+                            </div>
+                        </div>
+                    </div>
+                </Card>
+
+                <Card className="status-card">
+                    <div className="status-header">
+                        <div className="header-content">
+                            <h2>Uptime</h2>
+                            <div className="metric-value">
+                                <FontAwesomeIcon icon={faClock} className="metric-icon" />
+                                <span>{systemInfo.uptime}</span>
+                            </div>
                         </div>
                     </div>
                 </Card>
