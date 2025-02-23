@@ -404,3 +404,9 @@ h2 {
   border-color: var(--text-color);
   box-shadow: none;
 }
+
+.back-button .p-button{
+  background-color: white !important;
+  color: black;
+  border: none !important;
+}

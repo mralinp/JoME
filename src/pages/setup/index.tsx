@@ -1,13 +1,15 @@
 import { useState } from "react";
 import { Button } from "primereact/button";
+import { useNavigate } from 'react-router-dom';
 import Welcome from "./components/Welcome";
 import QRCode from "./components/QRCode";
 import WiFiSetup from "./components/WiFiSetup";
 import Success from "./components/Success";
 import "./auth.css";
 
-const AuthPage = () => {
+const SetUpPage = () => {
   const [step, setStep] = useState(0);
+  const navigate = useNavigate();
   const totalSteps = 4; // Adjust based on your total steps
 
   const handleNext = () => {
@@ -23,6 +25,7 @@ const AuthPage = () => {
   const handleFinish = () => {
     // Handle completion logic here
     console.log('Setup completed');
+    navigate('/dashboard');
   };
 
   const renderBackButton = () => {
@@ -80,4 +83,4 @@ const AuthPage = () => {
   );
 };
 
-export default AuthPage;
+export default SetUpPage;
