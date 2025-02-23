@@ -1,5 +1,6 @@
 import { Button } from "primereact/button";
-import { Card } from "primereact/card";
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faSeedling } from '@fortawesome/free-solid-svg-icons';
 
 interface WelcomeProps {
   onNext: () => void;
@@ -7,21 +8,18 @@ interface WelcomeProps {
 
 const Welcome = ({ onNext }: WelcomeProps) => {
   return (
-    <Card className="welcome-step text-center">
+    <div className="welcome-step text-center">
       <div className="flex flex-column align-items-center gap-4">
         <div className="logo-container">
-          <i className="pi pi-leaf" style={{ 
-            fontSize: '4rem', 
-            color: 'var(--green-500)',
-            padding: '2rem',
-            borderRadius: '50%',
-            backgroundColor: 'var(--green-100)'
-          }}></i>
+          <FontAwesomeIcon 
+            icon={faSeedling} 
+            className="logo-icon"
+          />
         </div>
         <div className="welcome-text">
-          <h1 className="text-2xl font-bold mb-2">Welcome to JoME</h1>
-          <p className="text-gray-600 mb-4">
-            Your smart plant monitoring companion
+          <h1 className="text-2xl font-bold mb-2">Hi, I'm JoME</h1>
+          <p className="welcome-subtitle">
+            your gardener
           </p>
         </div>
         <Button 
@@ -29,10 +27,10 @@ const Welcome = ({ onNext }: WelcomeProps) => {
           icon="pi pi-arrow-right" 
           iconPos="right"
           onClick={onNext}
-          className="w-full p-button-rounded p-button-lg"
+          className="w-full"
         />
       </div>
-    </Card>
+    </div>
   );
 };
 

@@ -1,73 +1,81 @@
 import { useState } from "react";
-import { Steps } from "primereact/steps";
-import { Card } from "primereact/card";
 import { Button } from "primereact/button";
-import { Dropdown } from "primereact/dropdown";
 import Welcome from "./components/Welcome";
+import QRCode from "./components/QRCode";
+import WiFiSetup from "./components/WiFiSetup";
+import Success from "./components/Success";
 import "./auth.css";
 
 const AuthPage = () => {
   const [step, setStep] = useState(0);
+  const totalSteps = 4; // Adjust based on your total steps
 
-  const steps = [
-    { label: "Welcome" },
-    { label: "QR Code" },
-    { label: "WiFi" },
-    { label: "Complete" },
-  ];
+  const handleNext = () => {
+    setStep(step + 1);
+  };
+
+  const handleBack = () => {
+    if (step > 0) {
+      setStep(step - 1);
+    }
+  };
+
+  const handleFinish = () => {
+    // Handle completion logic here
+    console.log('Setup completed');
+  };
+
+  const renderBackButton = () => {
+    if (step === 0) return null;
+    
+    return (
+      <Button
+        icon="pi pi-arrow-left"
+        className="back-button"
+        onClick={handleBack}
+        severity="secondary"
+        rounded
+      />
+    );
+  };
+
+  const renderDotIndicator = () => {
+    return (
+      <div className="dot-indicator">
+        {Array.from({ length: totalSteps }).map((_, index) => (
+          <div
+            key={index}
+            className={`dot ${index === step ? 'active' : ''}`}
+          />
+        ))}
+      </div>
+    );
+  };
 
   const renderStep = () => {
     switch (step) {
       case 0:
-        return <Welcome onNext={() => setStep(1)} />;
+        return <Welcome onNext={handleNext} />;
       case 1:
-        return (
-          <Card className="qr-step">
-            <h2>Scan Your Device QR Code</h2>
-            {/* Add QR scanner component here */}
-            <Button
-              label="QR Code Scanned"
-              icon="pi pi-check"
-              onClick={() => setStep(2)}
-              className="w-full p-button-rounded"
-            />
-          </Card>
-        );
+        return <QRCode onNext={handleNext} onBack={handleBack} />;
       case 2:
-        return (
-          <Card className="wifi-step">
-            <h2>Select WiFi Network</h2>
-            <Dropdown
-              className="w-full mb-3"
-              placeholder="Select a network..."
-              options={[]} // Add your WiFi network options here
-            />
-            <Button
-              label="Connect"
-              icon="pi pi-wifi"
-              onClick={() => setStep(3)}
-              className="w-full p-button-rounded"
-            />
-          </Card>
-        );
+        return <WiFiSetup onNext={handleNext} onBack={handleBack} />;
       case 3:
-        return (
-          <Card className="success-step">
-            <h2>Setup Complete!</h2>
-            <p>Your JoME device is ready to use</p>
-            <i
-              className="pi pi-check-circle"
-              style={{ fontSize: "3rem", color: "var(--green-500)" }}
-            ></i>
-          </Card>
-        );
+        return <Success onFinish={handleFinish} />;
+      default:
+        return null;
     }
   };
 
   return (
-    <div className="auth-page p-3">
-      <Steps model={steps} activeIndex={step} className="mb-4" />
-      {renderStep()}
+    <div className="auth-page">
+      <div className="steps-section">
+        {renderBackButton()}
+        {renderDotIndicator()}
+      </div>
+      <div className="content-section">
+        {renderStep()}
+      </div>
     </div>
   );
 };
