@@ -224,15 +224,6 @@ h2 {
   padding: 0.75rem 1.5rem !important;
 }
 
-/* Device Info Styles */
-.device-info {
-  width: 100%;
-  padding: 1rem;
-  background-color: var(--surface-100);
-  border-radius: 4px;
-  margin: 2rem 0; /* Added margin top and bottom */
-}
-
 .info-row {
   display: flex;
   justify-content: space-between;
