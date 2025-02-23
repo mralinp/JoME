@@ -139,19 +139,8 @@ h2 {
   left: 1rem;
   width: 2.5rem;
   height: 2.5rem;
-  background-color: var(--surface-100) !important;
-  border: 1px solid var(--surface-200) !important;
-  border-radius: 50% !important;
-}
+ }
 
-.back-button .p-button-icon {
-  font-size: 1.2rem;
-  color: var(--text-color) !important;
-}
-
-.back-button:hover {
-  background-color: var(--surface-200) !important;
-}
 
 .welcome-step.p-card .p-card-body {
   padding: 0;
@@ -159,7 +148,7 @@ h2 {
 
 /* Override PrimeReact button styles */
 .p-button {
-  border-radius: 8px !important; /* Soft edges */
+  border-radius: 4px !important; /* Sharper edges */
   padding: 1rem !important;
   text-transform: none !important;
 }
@@ -168,4 +157,220 @@ h2 {
 .p-button-rounded,
 .p-button.p-button-rounded {
   border-radius: 8px !important; /* Override rounded style */
+}
+
+/* QR Scanner Styles */
+.qr-scanner-container {
+  width: 280px;
+  height: 280px;
+  position: relative;
+  margin: 2rem 0;
+}
+
+.qr-scanner-frame {
+  width: 100%;
+  height: 100%;
+  position: relative;
+  border: 2px solid var(--surface-200);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* Corner styles */
+.corner-tl, .corner-tr, .corner-bl, .corner-br {
+  position: absolute;
+  width: 20px;
+  height: 20px;
+  border-color: var(--text-color);
+  border-style: solid;
+  border-width: 0;
+}
+
+.corner-tl {
+  top: -2px;
+  left: -2px;
+  border-top-width: 4px;
+  border-left-width: 4px;
+}
+
+.corner-tr {
+  top: -2px;
+  right: -2px;
+  border-top-width: 4px;
+  border-right-width: 4px;
+}
+
+.corner-bl {
+  bottom: -2px;
+  left: -2px;
+  border-bottom-width: 4px;
+  border-left-width: 4px;
+}
+
+.corner-br {
+  bottom: -2px;
+  right: -2px;
+  border-bottom-width: 4px;
+  border-right-width: 4px;
+}
+
+.scan-button {
+  position: absolute;
+  z-index: 2;
+  background-color: var(--surface-900) !important;
+  color: white !important;
+  border: none !important;
+  padding: 0.75rem 1.5rem !important;
+}
+
+/* Device Info Styles */
+.device-info {
+  width: 100%;
+  padding: 1rem;
+  background-color: var(--surface-100);
+  border-radius: 4px;
+  margin: 2rem 0; /* Added margin top and bottom */
+}
+
+.info-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0.5rem 0;
+}
+
+.info-label {
+  color: var(--text-color-secondary);
+  font-size: 0.875rem;
+}
+
+.info-value {
+  color: var(--text-color);
+  font-weight: 500;
+}
+
+/* Add margin to the next button container */
+.qr-step .p-button.w-full {
+  margin-top: 1rem;
+}
+
+/* WiFi Setup Styles */
+.wifi-form {
+  width: 100%;
+  max-width: 400px;
+  margin: 2rem 0;
+}
+
+.p-dropdown {
+  width: 100% !important;
+  min-width: 280px !important; /* Added minimum width */
+}
+
+.p-dropdown-panel {
+  width: 280px !important; /* Match dropdown width */
+}
+
+.wifi-network-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  padding: 0.5rem 0.75rem;
+}
+
+.wifi-network-item span {
+  text-align: left;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  margin-right: auto; /* Push content to the left */
+}
+
+.signal-icon {
+  font-size: 1.2rem;
+  margin-left: 1rem; /* Space between name and icon */
+}
+
+.wifi-network-item.default-option {
+  color: var(--text-color-secondary);
+  justify-content: flex-start; /* Align default option to left */
+}
+
+/* Form field styles */
+.field {
+  text-align: left;
+  margin-bottom: 1.5rem;
+}
+
+.field label {
+  font-weight: 500;
+  margin-bottom: 0.5rem;
+  display: block;
+}
+
+/* PrimeReact Dropdown overrides */
+.p-dropdown-panel .p-dropdown-items .p-dropdown-item {
+  padding: 0.75rem 1.25rem;
+}
+
+/* Password input styling */
+.p-password {
+  width: 100% !important;
+  min-width: 280px !important;
+}
+
+.p-password-input {
+  width: 100% !important;
+}
+
+/* Make password toggle icon more visible */
+.p-password-toggle {
+  opacity: 0.8 !important;
+}
+
+.p-password-toggle:hover {
+  opacity: 1 !important;
+}
+
+/* Signal icon styles */
+.signal-icon.high {
+  color: var(--text-color);
+  opacity: 0.9;
+}
+
+.signal-icon.medium {
+  color: var(--text-color);
+  opacity: 0.6;
+}
+
+.signal-icon.low {
+  color: var(--text-color);
+  opacity: 0.3;
+}
+
+.connection-status {
+  margin: 1rem 0;
+}
+
+.connection-status .p-progress-spinner {
+  width: 30px;
+  height: 30px;
+}
+
+.connection-status .flex {
+  color: var(--text-color-secondary);
+}
+
+.connection-button {
+  min-height: 3rem;
+}
+
+.connection-button .p-progress-spinner {
+  width: 20px !important;
+  height: 20px !important;
+}
+
+.connection-button .flex {
+  color: white;
 }

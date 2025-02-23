@@ -24,7 +24,7 @@ const Welcome = ({ onNext }: WelcomeProps) => {
         </div>
         <Button 
           label="Get Started" 
-          icon="pi pi-arrow-right" 
+          icon="pi pi-play" 
           iconPos="right"
           onClick={onNext}
           className="w-full"

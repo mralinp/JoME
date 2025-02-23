@@ -13,7 +13,8 @@ const Success = ({ onFinish }: SuccessProps) => {
         <div className="success-icon">
           <FontAwesomeIcon 
             icon={faCheckCircle} 
-            className="text-6xl text-primary"
+            className="text-8xl text-primary"
+            style={{ fontSize: '5rem' }}
           />
         </div>
         <h1 className="text-2xl font-bold">All Set!</h1>
@@ -21,8 +22,8 @@ const Success = ({ onFinish }: SuccessProps) => {
           Your device is ready to use
         </p>
         <Button 
-          label="Get Started" 
-          icon="pi pi-arrow-right" 
+          label="Finish" 
+          icon="pi pi-flag" 
           iconPos="right"
           onClick={onFinish}
           className="w-full"
