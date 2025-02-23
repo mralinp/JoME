@@ -374,3 +374,33 @@ h2 {
 .connection-button .flex {
   color: white;
 }
+
+.garden-form {
+  width: 100%;
+  max-width: 400px;
+  margin: 1rem 0;
+}
+
+.garden-form .field label {
+  font-weight: 500;
+  color: var(--text-color);
+}
+
+.garden-form .p-inputtext {
+  background-color: var(--surface-100);
+  border: 1px solid var(--surface-200);
+  text-align: center;
+}
+
+.garden-form .p-inputtext::placeholder {
+  text-align: center;
+}
+
+.garden-form .p-inputtext:hover {
+  border-color: var(--text-color);
+}
+
+.garden-form .p-inputtext:focus {
+  border-color: var(--text-color);
+  box-shadow: none;
+}
