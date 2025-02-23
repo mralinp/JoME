@@ -38,6 +38,7 @@ const SetUpPage = () => {
         onClick={handleBack}
         severity="secondary"
         rounded
+        style={{ backgroundColor: 'white', color: 'black', border: 'none' }}
       />
     );
   };
