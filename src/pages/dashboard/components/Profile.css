@@ -57,22 +57,42 @@
 .devices-title {
   font-size: 1.25rem;
   font-weight: 600;
-     margin: 2rem 1rem 1rem;
+  margin: 2rem 1rem 1rem;
   position: sticky;
   top: 0;
   z-index: 1;
+  background: #fff;
 }
 
 .devices-scroll-container {
-    overflow-y: auto;
-    max-height: calc(100vh - 250px); /* Adjust based on your header and title heights */
+  height: calc(100vh - 300px);
+  overflow-y: auto;
+  padding-right: 1rem;
 }
 
 .devices-list {
-    display: flex;
-    flex-direction: column;
-    gap: 1rem;
-    padding: 0 1rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+/* Custom scrollbar styling */
+.devices-scroll-container::-webkit-scrollbar {
+  width: 8px;
+}
+
+.devices-scroll-container::-webkit-scrollbar-track {
+  background: var(--surface-100);
+  border-radius: 4px;
+}
+
+.devices-scroll-container::-webkit-scrollbar-thumb {
+  background: var(--surface-300);
+  border-radius: 4px;
+}
+
+.devices-scroll-container::-webkit-scrollbar-thumb:hover {
+  background: var(--surface-400);
 }
 
 .device-card {
@@ -143,21 +163,29 @@
 }
 
 .add-device-button {
-    width: 100%;
-    padding: 1rem;
-    border: none;
-    color: #FFFFFF;
-    font-size: 1.125rem;
-    font-weight: 500;
-    background: #000000;
-    cursor: pointer;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: 0.5rem;
+  width: 100%;
+  padding: 1rem;
+  border: none;
+  color: #FFFFFF;
+  font-size: 1.125rem;
+  font-weight: 500;
+  background: #000000;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
 }
 
 .add-device-button:hover {
-    background: #1a1a1a;
+  background: #1a1a1a;
+}
+
+/* Add styles for the main container */
+.profile-container {
+  height: 100vh;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
 }
  

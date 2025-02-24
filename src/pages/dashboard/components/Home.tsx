@@ -1,9 +1,8 @@
-import React from 'react';
 import { Card } from 'primereact/card';
-import { Button } from 'primereact/button';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faCheck, faBell, faMicrochip, faDroplet, faClock } from '@fortawesome/free-solid-svg-icons';
+import { faCheck, faMicrochip, faDroplet, faClock, faBell, faDownload } from '@fortawesome/free-solid-svg-icons';
 import './Home.css';
+import CustomButton from '../../../components/CustomButton';
 
 const Home = () => {
     // This would typically come from your application state or API
@@ -20,14 +19,7 @@ const Home = () => {
         <div className="home-container">
             <div className="top-navbar">
                 <h1 className="page-title">System Status</h1>
-                <Button 
-                    className="notification-btn"
-                    rounded
-                    text
-                    severity="secondary"
-                >
-                    <FontAwesomeIcon icon={faBell} />
-                </Button>
+                <CustomButton icon={faBell} className="notification-btn" severity="secondary" rounded={true} text={true} />
             </div>
 
             <Card className="system-status-card">
@@ -62,9 +54,7 @@ const Home = () => {
             <div className="updates-section">
                 <div className="updates-header">
                     <h2>System Updates</h2>
-                    <Button className="update-now-btn">
-                        Update Now
-                    </Button>
+                    <CustomButton className="update-now-btn" severity="secondary" rounded={true} text="Update System" icon={faDownload} />
                 </div>
 
                 <Card className="update-card">
